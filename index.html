@@ -418,7 +418,7 @@
                     <textarea id="up_ket" class="form-control" rows="3" placeholder="Ceritakan momen ini..."></textarea>
                 </div>
                 <button type="submit" class="btn" style="width: 100%;">Kirim ke Galeri</button>
-                <p style="font-size: 0.8rem; text-align: center; margin-top: 10px; color: var(--text-light);">*Foto akan diperiksa admin sebelum ditampilkan secara publik.</p>
+                <p style="font-size: 0.8rem; text-align: center; margin-top: 10px; color: var(--text-light);">*Foto akan langsung ditampilkan di galeri publik.</p>
             </form>
         </div>
     </section>
@@ -582,10 +582,10 @@
             const res = await apiRequest('uploadFoto', payload);
             
             if (res.success) {
-                showToast("Foto berhasil dikirim! Menunggu disetujui Admin.");
+                showToast("Foto berhasil dikirim dan ditambahkan ke galeri!");
                 document.getElementById('form-upload').reset();
                 clearImage();
-                nav('home');
+                nav('gallery');
             } else {
                 showToast("Gagal mengunggah foto.", "error");
             }
@@ -605,7 +605,7 @@
             const res = await apiRequest('kirimPesan', payload);
             
             if (res.success) {
-                showToast("Pesan berhasil dikirim! Menunggu disetujui Admin.");
+                showToast("Pesan berhasil dikirim ke dinding kenangan!");
                 document.getElementById('form-pesan').reset();
                 nav('wall');
             }
